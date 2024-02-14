@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpcs2jnsainwd"]
+
+[ext_resource type="PackedScene" uid="uid://dn1gsrsidqufg" path="res://Scenes/Attacks/bonk.tscn" id="1_mvdjd"]
+[ext_resource type="PackedScene" uid="uid://ceigya8bvoy8f" path="res://Scenes/player.tscn" id="2_qs3kp"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Attacks" type="Node2D" parent="."]
+
+[node name="Bonk" parent="Attacks" instance=ExtResource("1_mvdjd")]
+position = Vector2(89, 84)
+
+[node name="Player" parent="." instance=ExtResource("2_qs3kp")]
+position = Vector2(32, 60)

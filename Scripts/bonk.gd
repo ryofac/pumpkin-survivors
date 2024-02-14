@@ -4,23 +4,25 @@ extends Attack
 @onready var animation = $AnimatedSprite2D as AnimatedSprite2D;
 @onready var collision = $Hitbox/CollisionShape2D as CollisionShape2D;
 
+var remainingCoodown: float;
+
 func _ready():
-	cooldown = 5.0;
-	basicDamage = 2.0;
+	# Deixei os valores padrão no export
+	remainingCoodown = cooldown;
 
 func _process(delta):
-	cooldown -= delta;
 	
-	if cooldown <= 0:
-		animation.play("default");
-		cooldown = 5.0;
-
-
-
+	if remainingCoodown <= 0:
+		if !animation.is_playing():
+			animation.play("default");
+	else:
+		remainingCoodown -= delta;
+		$Label.text = str(round(remainingCoodown));
+		
 func _on_frame_changed():
 	collision.shape.radius += 6; 
 
 
 func _on_animation_finished():
 	collision.shape.radius = 0;
-	
+	remainingCoodown = cooldown;

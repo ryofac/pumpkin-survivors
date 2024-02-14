@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0wmyo4k7ynd3"]
+
+[ext_resource type="Script" path="res://Scripts/whip.gd" id="1_55t2p"]
+[ext_resource type="Texture2D" uid="uid://djqevt0w25t6k" path="res://Assets/normal.png" id="1_cs2lo"]
+[ext_resource type="Texture2D" uid="uid://c61kcg3d6l1v0" path="res://Assets/whipSprite.png" id="2_m7owd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_821a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7owd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Whip" type="Node2D"]
+script = ExtResource("1_55t2p")
+
+[node name="Normal" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_cs2lo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 0)
+sprite_frames = SubResource("SpriteFrames_821a6")

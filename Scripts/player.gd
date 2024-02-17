@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
+
+signal addedNewAttack;
+
+var currentAttacks: Array[Node];
 var dir: Vector2 = Vector2.ZERO;
 
 func _ready():
-	pass
+	currentAttacks = get_node("Attacks").get_children();
 
 
 func _process(delta):
@@ -14,3 +19,12 @@ func _process(delta):
 	move_and_slide();
 	
 	pass
+
+func addAttack(attackScene: PackedScene):
+	var _attInstance = attackScene.instantiate() as Attack;
+	
+	get_node("Attacks").add_child(_attInstance);
+	_attInstance.global_position = global_position;
+	currentAttacks.append(_attInstance);
+	addedNewAttack.emit(_attInstance);
+	

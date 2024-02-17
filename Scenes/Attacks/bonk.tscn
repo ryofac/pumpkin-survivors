@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn1gsrsidqufg"]
+[gd_scene load_steps=15 format=3 uid="uid://dn1gsrsidqufg"]
 
 [ext_resource type="Script" path="res://Scripts/bonk.gd" id="1_6lnx4"]
 [ext_resource type="Texture2D" uid="uid://h6rpqkoxtpwh" path="res://Assets/bonkSprite.png" id="2_mhssk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ryi0"]
+resource_local_to_scene = true
 radius = 0.01
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l3hv"]
@@ -46,11 +47,8 @@ region = Rect2(992, 0, 124, 124)
 atlas = ExtResource("2_mhssk")
 region = Rect2(1116, 0, 124, 124)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_efea2"]
-atlas = ExtResource("2_mhssk")
-region = Rect2(1240, 0, 124, 124)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_rcbht"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -84,7 +82,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_apt8c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_efea2")
+"texture": SubResource("AtlasTexture_6l3hv")
 }],
 "loop": false,
 "name": &"default",
@@ -102,16 +100,8 @@ basicDamage = 2.0
 shape = SubResource("CircleShape2D_8ryi0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rcbht")
-frame = 10
-frame_progress = 1.0
-
-[node name="Label" type="Label" parent="."]
-offset_left = -2.0
-offset_top = -12.0
-offset_right = 38.0
-offset_bottom = 11.0
-text = "label"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_frame_changed"]

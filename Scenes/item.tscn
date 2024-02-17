@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://daw6bpaa4v031"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_2o1iy"]
+[ext_resource type="Texture2D" uid="uid://bskxqp5wrhdpx" path="res://Assets/cristal_vida.png" id="1_4u4x7"]
+[ext_resource type="PackedScene" uid="uid://dn1gsrsidqufg" path="res://Scenes/Attacks/bonk.tscn" id="2_g30ci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fck6j"]
+radius = 5.0
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_2o1iy")
+attackScene = ExtResource("2_g30ci")
+
+[node name="CristalVida" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4u4x7")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_fck6j")
+
+[connection signal="body_entered" from="Area" to="." method="_on_body_entered"]

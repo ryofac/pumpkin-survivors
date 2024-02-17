@@ -1,14 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpcs2jnsainwd"]
+[gd_scene load_steps=4 format=3 uid="uid://dpcs2jnsainwd"]
 
-[ext_resource type="PackedScene" uid="uid://dn1gsrsidqufg" path="res://Scenes/Attacks/bonk.tscn" id="1_mvdjd"]
-[ext_resource type="PackedScene" uid="uid://ceigya8bvoy8f" path="res://Scenes/player.tscn" id="2_qs3kp"]
+[ext_resource type="Script" path="res://Scenes/mainScene.gd" id="1_wbuxp"]
+[ext_resource type="Texture2D" uid="uid://c61kcg3d6l1v0" path="res://Assets/whipSprite.png" id="3_hxjqa"]
+[ext_resource type="PackedScene" uid="uid://daw6bpaa4v031" path="res://Scenes/item.tscn" id="3_yyga1"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_wbuxp")
 
-[node name="Attacks" type="Node2D" parent="."]
+[node name="WhipSprite" type="Sprite2D" parent="."]
+position = Vector2(-196, 255)
+texture = ExtResource("3_hxjqa")
 
-[node name="Bonk" parent="Attacks" instance=ExtResource("1_mvdjd")]
-position = Vector2(89, 84)
+[node name="WhipSprite2" type="Sprite2D" parent="."]
+position = Vector2(56, 253)
+texture = ExtResource("3_hxjqa")
 
-[node name="Player" parent="." instance=ExtResource("2_qs3kp")]
-position = Vector2(32, 60)
+[node name="WhipSprite3" type="Sprite2D" parent="."]
+position = Vector2(-103, 91)
+texture = ExtResource("3_hxjqa")
+
+[node name="WhipSprite4" type="Sprite2D" parent="."]
+position = Vector2(216, 108)
+texture = ExtResource("3_hxjqa")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_top = 22.0
+offset_right = -24.0
+offset_bottom = 126.0
+grow_horizontal = 0
+
+[node name="Item" parent="." instance=ExtResource("3_yyga1")]
+position = Vector2(235, 207)
+
+[node name="Item2" parent="." instance=ExtResource("3_yyga1")]
+position = Vector2(162, 244)
+
+[node name="Item3" parent="." instance=ExtResource("3_yyga1")]
+position = Vector2(232, 259)
+
+[node name="Item4" parent="." instance=ExtResource("3_yyga1")]
+position = Vector2(333, 244)
+
+[node name="Item5" parent="." instance=ExtResource("3_yyga1")]
+position = Vector2(172, 187)

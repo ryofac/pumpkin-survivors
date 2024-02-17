@@ -31,3 +31,5 @@ shape = SubResource("CapsuleShape2D_ka3c1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Attacks" type="Node2D" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn1gsrsidqufg"]
+[gd_scene load_steps=16 format=3 uid="uid://dn1gsrsidqufg"]
 
 [ext_resource type="Script" path="res://Scripts/bonk.gd" id="1_6lnx4"]
 [ext_resource type="Texture2D" uid="uid://h6rpqkoxtpwh" path="res://Assets/bonkSprite.png" id="2_mhssk"]
+[ext_resource type="Script" path="res://Scripts/updateManager.gd" id="3_mj6do"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ryi0"]
 resource_local_to_scene = true
@@ -89,10 +90,11 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Bonk" type="Node2D"]
+[node name="Bonk" type="Node2D" node_paths=PackedStringArray("updateManager")]
 script = ExtResource("1_6lnx4")
 cooldown = 5.0
 basicDamage = 2.0
+updateManager = NodePath("UpdateManager")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -102,6 +104,9 @@ shape = SubResource("CircleShape2D_8ryi0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rcbht")
+
+[node name="UpdateManager" type="Node" parent="."]
+script = ExtResource("3_mj6do")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_frame_changed"]

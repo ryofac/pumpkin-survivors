@@ -25,6 +25,7 @@ func addAttack(attackScene: PackedScene):
 	
 	get_node("Attacks").add_child(_attInstance);
 	_attInstance.global_position = global_position;
+	_attInstance.player = self;
 	currentAttacks.append(_attInstance);
 	addedNewAttack.emit(_attInstance);
 	

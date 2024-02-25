@@ -1,29 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpcs2jnsainwd"]
+[gd_scene load_steps=3 format=3 uid="uid://dpcs2jnsainwd"]
 
 [ext_resource type="Script" path="res://Scenes/mainScene.gd" id="1_wbuxp"]
-[ext_resource type="Texture2D" uid="uid://c61kcg3d6l1v0" path="res://Assets/whipSprite.png" id="3_hxjqa"]
 [ext_resource type="PackedScene" uid="uid://daw6bpaa4v031" path="res://Scenes/item.tscn" id="3_yyga1"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_wbuxp")
 
-[node name="WhipSprite" type="Sprite2D" parent="."]
-position = Vector2(-196, 255)
-texture = ExtResource("3_hxjqa")
-
-[node name="WhipSprite2" type="Sprite2D" parent="."]
-position = Vector2(56, 253)
-texture = ExtResource("3_hxjqa")
-
-[node name="WhipSprite3" type="Sprite2D" parent="."]
-position = Vector2(-103, 91)
-texture = ExtResource("3_hxjqa")
-
-[node name="WhipSprite4" type="Sprite2D" parent="."]
-position = Vector2(216, 108)
-texture = ExtResource("3_hxjqa")
-
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="UI"]
+offset_right = 65.0
+offset_bottom = 31.0
+text = "Update"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchors_preset = 1
@@ -49,3 +37,5 @@ position = Vector2(333, 244)
 
 [node name="Item5" parent="." instance=ExtResource("3_yyga1")]
 position = Vector2(172, 187)
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]

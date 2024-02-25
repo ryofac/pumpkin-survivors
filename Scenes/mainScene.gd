@@ -57,6 +57,7 @@ func _on_added_attack(newAttack: Attack):
 
 func _on_button_pressed():
 	var _att = player.currentAttacks.pick_random() as Attack;
+	
 	if !_att:
 		print_rich("\n[color=red]LEVEL - NENHUM ATAQUE ENCONTRADO");
 		return;

@@ -7,6 +7,7 @@ extends Attack
 func _ready():
 	# Deixei os valores padrão no export
 	remainingCooldown = cooldown;
+	levelMax = updateManager.updatesList.size() + 1;
 
 func _process(delta):
 	

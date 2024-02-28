@@ -2,6 +2,8 @@ extends Node
 
 class_name UpdateManager
 
+# Nó que gerencia as possíveis melhorias de um ataque
+
 @onready var attack: Attack = get_parent() as Attack;
 
 var index: int = 0;

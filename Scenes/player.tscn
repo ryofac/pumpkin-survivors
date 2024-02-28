@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceigya8bvoy8f"]
+[gd_scene load_steps=6 format=3 uid="uid://ceigya8bvoy8f"]
 
 [ext_resource type="Texture2D" uid="uid://djqevt0w25t6k" path="res://Assets/normal.png" id="1_32f7p"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_d33by"]
+[ext_resource type="Script" path="res://Scenes/StateMachine.gd" id="3_c7pn4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsbin"]
 animations = [{
@@ -33,3 +34,10 @@ shape = SubResource("CapsuleShape2D_ka3c1")
 zoom = Vector2(3, 3)
 
 [node name="Attacks" type="Node2D" parent="."]
+
+[node name="States" type="Node" parent="."]
+script = ExtResource("3_c7pn4")
+
+[node name="default" type="Node" parent="States"]
+
+[node name="attacking" type="Node" parent="States"]

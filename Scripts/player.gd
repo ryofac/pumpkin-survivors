@@ -22,7 +22,6 @@ func _process(delta):
 
 func addAttack(attackScene: PackedScene):
 	var _attInstance = attackScene.instantiate() as Attack;
-	
 	get_node("Attacks").add_child(_attInstance);
 	_attInstance.global_position = global_position;
 	_attInstance.player = self;
